@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+git clone -b v0.9.1 git@github.com:neovim/neovim.git $HOME/workspace/neovim
+
+xcode-select --install
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install ninja cmake gettext curl
+
+cd $HOME/workspace/neovim
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
