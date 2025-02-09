@@ -1,0 +1,6 @@
+[user]
+	name = ryanwaudby
+	email = ryan.waudby@bbc.co.uk
+[core]
+	editor = nvim
+	autocrlf = input
