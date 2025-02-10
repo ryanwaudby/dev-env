@@ -52,4 +52,5 @@ copy_file() {
 }
 
 copy_dir .config $HOME/.config
+
 copy_file .gitconfig $HOME
