@@ -5,7 +5,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export NODE_OPTIONS="--max-old-space-size=16384"
+
 export PATH="$PATH:/path/to/depot_tools"
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 export NVM_LAZY=1
 plugins=(
@@ -24,16 +29,8 @@ alias nts="cd ~/workspace/tv-client/apps/sounds"
 alias ntp="cd ~/workspace/tv-client/packages"
 alias nde="cd ~/workspace/dev-env"
 
-function ff() {
-  if [ -z "$2" ]
-  then
-    ag -g $1 | nl
-  else
-    ag -g $1 | sed -n "${2}p" | xargs nvim
-  fi
-}
+alias ff="fzf-tmux -p | xargs nvim"
 
-export ff
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
