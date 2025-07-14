@@ -18,7 +18,8 @@ plugins=(
 )
 
 alias vim='nvim'
-alias ll='ls -la'
+alias ll='ls -la --color=auto'
+alias ls='ls --color=auto'
 
 alias nw="cd ~/workspace"
 alias nt="cd ~/workspace/tv-client/apps/telly"
