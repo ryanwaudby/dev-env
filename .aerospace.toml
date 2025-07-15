@@ -53,17 +53,30 @@ automatically-unhide-macos-hidden-apps = true
     alt-shift-1 = 'move-node-to-workspace 1'
     alt-shift-2 = 'move-node-to-workspace 2'
 
+    # Browser - Google Chrome
     alt-b = 'workspace B'
     alt-rightSquareBracket = 'workspace B'
+    alt-shift-rightSquareBracket = 'exec-and-forget open -a /Applications/Google\ Chrome.app'
+
+    # Terminal - Ghostty
     alt-t = 'workspace T'
     alt-enter = 'workspace T'
+    alt-shift-enter = 'exec-and-forget open -a /Applications/Ghostty.app'
+
+    # Chat - Slack
     alt-s = 'workspace S'
     alt-leftSquareBracket = 'workspace S'
+    alt-shift-leftSquareBracket = 'exec-and-forget open -a /Applications/Slack.app' 
+
     alt-m = 'workspace M'
+    alt-quote = 'workspace M'
+    alt-shift-quote = 'exec-and-forget open -a /Applications/Spotify.app' 
+
     alt-o = 'workspace O'
     alt-backslash = 'workspace O'
+    alt-shift-backslash = 'exec-and-forget open -a /Applications/Microsoft\ Outlook.app' 
 
-    alt-shift-f = 'fullscreen'
+    alt-f = 'fullscreen'
     
     alt-tab = 'workspace-back-and-forth'
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
