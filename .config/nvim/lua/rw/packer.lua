@@ -50,4 +50,14 @@ return require('packer').startup(function(use)
   use('nvim-lua/plenary.nvim')
   use('MunifTanjim/prettier.nvim')
 
+  use {
+    'kawre/leetcode.nvim',
+    requires = {
+      'nvim-telescope/telescope.nvim',
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      'nvim-treesitter/nvim-treesitter',
+    }
+  }
+
 end)
