@@ -67,8 +67,8 @@
       "light": "dawnMuted"
     },
     "background": {
-      "dark": "base",
-      "light": "dawnBase"
+      "dark": "none",
+      "light": "none"
     },
     "backgroundPanel": {
       "dark": "surface",

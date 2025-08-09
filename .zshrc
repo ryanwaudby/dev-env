@@ -5,6 +5,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export COLORTERM=truecolor
+
 export NODE_OPTIONS="--max-old-space-size=16384"
 
 export PATH="$PATH:/path/to/depot_tools"
@@ -44,3 +46,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# # opencode
+export PATH=/Users/waudbr01/.opencode/bin:$PATH
+

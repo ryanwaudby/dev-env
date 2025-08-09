@@ -1,4 +1,4 @@
-background = 0d1022
-foreground = ffffff
-
+background = #111426
+background-opacity = 0.9
 window-save-state = always
+
