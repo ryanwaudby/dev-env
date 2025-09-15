@@ -34,11 +34,6 @@ alias nde="cd ~/workspace/dev-env"
 
 alias ff="fzf-tmux -p | xargs nvim"
 
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # pnpm
 export PNPM_HOME="/Users/ryanwaudby/Library/pnpm"
 case ":$PATH:" in
@@ -50,3 +45,4 @@ esac
 # # opencode
 export PATH=/Users/waudbr01/.opencode/bin:$PATH
 
+eval "$(starship init zsh)"

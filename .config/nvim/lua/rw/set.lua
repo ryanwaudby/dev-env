@@ -28,16 +28,21 @@ vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
 
--- set up LSP signs
-for type, icon in pairs({
-	Error = "",
-	Warn = "",
-	Hint = "",
-	Info = "",
-}) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
+-- set up LSP signs with modern diagnostic config
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.HINT] = "",
+      [vim.diagnostic.severity.INFO] = "",
+    }
+  }
+})
 
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Show diagnostics' })
 
+  -- Auto-format C files on save using LSP
+vim.api.nvim_create_autocmd("BufWritePre", {                                       pattern = {"*.c", "*.h"},
+  callback = function()                                                              vim.lsp.buf.format({ async = false })
+  end,                                                                           })
