@@ -33,12 +33,13 @@ automatically-unhide-macos-hidden-apps = true
 [mode.main.binding]
     alt-slash = 'layout tiles horizontal vertical'
     alt-comma = 'layout accordion horizontal vertical'
-    
+
+    # Navigation on right home row (standard ergonomic pattern)
     alt-h = 'focus left'
     alt-j = 'focus down'
     alt-k = 'focus up'
     alt-l = 'focus right'
-    
+
     alt-shift-h = 'move left'
     alt-shift-j = 'move down'
     alt-shift-k = 'move up'
@@ -47,34 +48,24 @@ automatically-unhide-macos-hidden-apps = true
     alt-minus = 'resize smart -50'
     alt-equal = 'resize smart +50'
     
-    alt-1 = 'workspace 1'
-    alt-2 = 'workspace 2'
-
-    alt-shift-1 = 'move-node-to-workspace 1'
-    alt-shift-2 = 'move-node-to-workspace 2'
+    # Terminal - Ghostty
+    alt-1 = ['workspace T', 'exec-and-forget open -a /Applications/Ghostty.app']
+    alt-enter = 'workspace T'
 
     # Browser - Google Chrome
-    alt-b = 'workspace B'
-    alt-rightSquareBracket = 'workspace B'
-    alt-shift-rightSquareBracket = 'exec-and-forget open -a /Applications/Google\ Chrome.app'
-
-    # Terminal - Ghostty
-    alt-t = 'workspace T'
-    alt-enter = 'workspace T'
-    alt-shift-enter = 'exec-and-forget open -a /Applications/Ghostty.app'
+    alt-2 = ['workspace B', 'exec-and-forget open -a /Applications/Google\ Chrome.app']
 
     # Chat - Slack
-    alt-s = 'workspace S'
-    alt-leftSquareBracket = 'workspace S'
-    alt-shift-leftSquareBracket = 'exec-and-forget open -a /Applications/Slack.app' 
+    alt-3 = ['workspace S', 'exec-and-forget open -a /Applications/Slack.app']
 
-    alt-m = 'workspace M'
-    alt-quote = 'workspace M'
-    alt-shift-quote = 'exec-and-forget open -a /Applications/Spotify.app' 
+    # Music - Spotify
+    alt-4 = ['workspace M', 'exec-and-forget open -a /Applications/Spotify.app']
 
-    alt-o = 'workspace O'
-    alt-backslash = 'workspace O'
-    alt-shift-backslash = 'exec-and-forget open -a /Applications/Microsoft\ Outlook.app' 
+    # Email - Outlook
+    alt-5 = ['workspace O', 'exec-and-forget open -a /Applications/Microsoft\ Outlook.app']
+
+    alt-shift-1 = 'move-node-to-workspace 1'
+    alt-shift-2 = 'move-node-to-workspace 2' 
 
     alt-f = 'fullscreen'
     
@@ -119,7 +110,3 @@ run = "move-node-to-workspace O"
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = "move-node-to-workspace M"
-
-[[on-window-detected]]
-if.app-id = 'com.bbc.tvrenderer'
-run = "move-node-to-workspace 1"
