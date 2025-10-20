@@ -49,23 +49,27 @@ automatically-unhide-macos-hidden-apps = true
     alt-equal = 'resize smart +50'
     
     # Terminal - Ghostty
-    alt-1 = ['workspace T', 'exec-and-forget open -a /Applications/Ghostty.app']
-    alt-enter = 'workspace T'
+    alt-enter = ['workspace T', 'exec-and-forget open -a /Applications/Ghostty.app']
 
     # Browser - Google Chrome
+    alt-b = ['workspace B', 'exec-and-forget open -a /Applications/Google\ Chrome.app']
     alt-2 = ['workspace B', 'exec-and-forget open -a /Applications/Google\ Chrome.app']
 
     # Chat - Slack
-    alt-3 = ['workspace S', 'exec-and-forget open -a /Applications/Slack.app']
+    alt-c = ['workspace S', 'exec-and-forget open -a /Applications/Slack.app']
+    alt-shift-1 = ['workspace S', 'exec-and-forget open -a /Applications/Slack.app']
 
     # Music - Spotify
-    alt-4 = ['workspace M', 'exec-and-forget open -a /Applications/Spotify.app']
+    alt-m = ['workspace M', 'exec-and-forget open -a /Applications/Spotify.app']
+    alt-shift-2 = ['workspace M', 'exec-and-forget open -a /Applications/Spotify.app']
 
     # Email - Outlook
-    alt-5 = ['workspace O', 'exec-and-forget open -a /Applications/Microsoft\ Outlook.app']
+    alt-e = ['workspace O', 'exec-and-forget open -a /Applications/Microsoft\ Outlook.app']
+    alt-shift-3 = ['workspace O', 'exec-and-forget open -a /Applications/Microsoft\ Outlook.app']
 
-    alt-shift-1 = 'move-node-to-workspace 1'
-    alt-shift-2 = 'move-node-to-workspace 2' 
+    # Teams - Microsoft Teams
+    alt-t = ['workspace C', 'exec-and-forget open -a /Applications/Microsoft\ Teams.app']
+    alt-4 = ['move-node-to-workspace C', 'workspace C', 'exec-and-forget open -a /Applications/Microsoft\ Teams.app']
 
     alt-f = 'fullscreen'
     
@@ -110,3 +114,7 @@ run = "move-node-to-workspace O"
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = "move-node-to-workspace M"
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = "move-node-to-workspace C"
