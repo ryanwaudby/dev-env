@@ -51,11 +51,11 @@ automatically-unhide-macos-hidden-apps = true
     alt-minus = 'resize smart -50'
     alt-equal = 'resize smart +50'
     
-    alt-1 = 'workspace 1'
-    alt-2 = 'workspace 2'
-    alt-3 = 'workspace 3'
-    alt-4 = 'workspace 4'
-    alt-5 = 'workspace 5'
+    alt-1 = 'workspace --auto-back-and-forth 1'
+    alt-2 = 'workspace --auto-back-and-forth 2'
+    alt-3 = 'workspace --auto-back-and-forth 3'
+    alt-4 = 'workspace --auto-back-and-forth 4'
+    alt-5 = 'workspace --auto-back-and-forth 5'
 
     alt-shift-1 = 'move-node-to-workspace 1'
     alt-shift-2 = 'move-node-to-workspace 2'
