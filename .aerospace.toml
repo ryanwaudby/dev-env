@@ -53,43 +53,34 @@ automatically-unhide-macos-hidden-apps = true
     
     alt-1 = 'workspace --auto-back-and-forth 1'
     alt-2 = 'workspace --auto-back-and-forth 2'
-    alt-r = 'workspace --auto-back-and-forth r'
-    alt-9 = 'workspace --auto-back-and-forth 9'
-    alt-0 = 'workspace --auto-back-and-forth 0'
-
-    alt-u = 'workspace --auto-back-and-forth 1'
-    alt-i = 'workspace --auto-back-and-forth 2'
-    alt-o = 'workspace --auto-back-and-forth 9'
-    alt-p = 'workspace --auto-back-and-forth 0'
-
-    alt-shift-u = 'move-node-to-workspace 1'
-    alt-shift-i = 'move-node-to-workspace 2'
-    alt-shift-o = 'move-node-to-workspace 9'
-    alt-shift-r = 'move-node-to-workspace r'
-    alt-shift-p = 'move-node-to-workspace 0'
+    alt-4 = 'workspace --auto-back-and-forth 4'
+    alt-5 = 'workspace --auto-back-and-forth 5'
 
     alt-shift-1 = 'move-node-to-workspace 1'
     alt-shift-2 = 'move-node-to-workspace 2'
-    alt-shift-9 = 'move-node-to-workspace 9'
-    alt-shift-0 = 'move-node-to-workspace 0'
+    alt-shift-4 = 'move-node-to-workspace 4'
+    alt-shift-5 = 'move-node-to-workspace 5'
 
     # Terminal - Ghostty
-    alt-enter = ['exec-and-forget open -n -a /Applications/Ghostty.app']
+    alt-t = 'workspace --auto-back-and-forth T'
+    alt-enter = 'workspace --auto-back-and-forth T'
+    alt-shift-t = ['exec-and-forget open -n -a /Applications/Ghostty.app', 'workspace T']
 
     # Browser - Google Chrome
-    alt-b = ['exec-and-forget /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window']
-    alt-shift-b = ['exec-and-forget /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --incognito']
+    alt-b = 'workspace --auto-back-and-forth B'
+    alt-shift-b = ['exec-and-forget open -n -a /Applications/Google\ Chrome.app', 'workspace B']
 
     # Chat - Slack
-    alt-c = ['exec-and-forget open -a /Applications/Slack.app']
-    # Teams - Microsoft Teams
-    alt-shift-c = ['exec-and-forget open -a /Applications/Microsoft\ Teams.app']
+    alt-s = 'workspace --auto-back-and-forth S'
+    alt-shift-s = ['exec-and-forget open -n -a /Applications/Slack.app', 'workspace S']
 
     # Music - Spotify
-    alt-m = ['exec-and-forget open -a /Applications/Spotify.app']
+    alt-m = 'workspace --auto-back-and-forth M'
+    alt-shift-m = ['exec-and-forget open -a /Applications/Spotify.app', 'workspace M']
 
     # Email - Outlook
-    alt-e = ['exec-and-forget open -a /Applications/Microsoft\ Outlook.app']
+    alt-o = 'workspace --auto-back-and-forth O'
+    alt-shift-o = ['exec-and-forget open -n -a /Applications/Microsoft\ Outlook.app', 'workspace O']
 
     # Finder
     alt-f = [
@@ -101,9 +92,8 @@ automatically-unhide-macos-hidden-apps = true
       '''
     ]
 
-    alt-a = ['exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app="https://claude.ai/new"']
-    alt-t = ['exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app="https://app.todoist.com/app/upcoming"']
-    alt-g = ['exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app="https://gmail.com"']
+    alt-a = ['exec-and-forget /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app="https://claude.ai/new"']
+    alt-g = ['exec-and-forget /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app="https://gmail.com"']
 
     alt-shift-f = 'fullscreen'
     
@@ -111,6 +101,7 @@ automatically-unhide-macos-hidden-apps = true
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
     
     alt-shift-semicolon = 'mode service'
+    alt-shift-space = 'layout floating tiling'
 
 [mode.service.binding]
     esc = ['reload-config', 'mode main']
@@ -124,3 +115,37 @@ automatically-unhide-macos-hidden-apps = true
     down = 'volume down'
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
+
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'iplayer-posix'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'qemu-system-aarch64'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iphonesimulator'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.bbc.iplayer-macos'
+run = 'layout floating'
+
+# App workspace assignments
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace T'
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace S'
+
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = 'move-node-to-workspace M'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+run = 'move-node-to-workspace O'

@@ -42,7 +42,10 @@ vim.diagnostic.config({
 
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Show diagnostics' })
 
-  -- Auto-format C files on save using LSP
-vim.api.nvim_create_autocmd("BufWritePre", {                                       pattern = {"*.c", "*.h"},
-  callback = function()                                                              vim.lsp.buf.format({ async = false })
-  end,                                                                           })
+-- Auto-format on save using LSP
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = {"*.c", "*.h"},
+  callback = function()
+    vim.lsp.buf.format({ async = false })
+  end,
+})
