@@ -1,14 +1,11 @@
 #!/usr/bin/env bash
 
 script_dir=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
-filter=""
 dry="0"
 
 while [[ $# > 0 ]]; do
   if [[ $1 == "--dry" ]]; then
     dry="1"
-  else
-    filter="$1"
   fi
   shift
 done
@@ -24,22 +21,10 @@ log() {
 execute() {
   log "execute $@"
   if [[ $dry == "1" ]]; then
-    return 
+    return
   fi
   "$@"
 }
 
-
-echo "$script_dir -- $filter"
-
-cd $script_dir
-scripts=$(find ./runs -maxdepth 1 -mindepth 1 -perm +111 -type f)
-
-for script in $scripts; do
-  if echo "$script" | grep -qv "$filter"; then
-    log "filtering $script"
-    continue
-  fi
-
-  execute ./$script
-done
+echo "---------- brew bundle ----------"
+execute brew bundle --file=$script_dir/Brewfile
