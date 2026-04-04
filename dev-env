@@ -21,7 +21,7 @@ log() {
 execute() {
   log "execute $@"
   if [[ $dry == "1" ]]; then
-    return 
+    return
   fi
   "$@"
 }
@@ -29,7 +29,7 @@ execute() {
 
 echo "---------- dev-env ----------"
 
-copy_dir() {
+link_dir() {
   from=$1
   to=$2
 
@@ -37,23 +37,23 @@ copy_dir() {
     dirs=$(find . -mindepth 1 -maxdepth 1 -type d)
     for dir in $dirs; do
       execute rm -rf $to/$dir
-      execute cp -r $dir $to/$dir
+      execute ln -sf $from/$dir $to/$dir
     done
   popd > /dev/null
 }
 
-copy_file() {
+link_file() {
   from=$1
   to=$2
   name=$(basename $from)
 
-  execute rm $to/$name
-  execute cp -r $from $to/$name
+  execute rm -f $to/$name
+  execute ln -sf $script_dir/$from $to/$name
 }
 
-copy_dir .config $HOME/.config
+link_dir $script_dir/.config $HOME/.config
 
-copy_file .gitconfig $HOME
-copy_file .zshrc $HOME
-copy_file .tmux.conf $HOME
-copy_file .aerospace.toml $HOME
+link_file .gitconfig $HOME
+link_file .zshrc $HOME
+link_file .tmux.conf $HOME
+link_file .aerospace.toml $HOME
