@@ -35,7 +35,7 @@ alias nde="cd ~/workspace/dev-env"
 alias ff="fzf-tmux -p | xargs nvim"
 
 # pnpm
-export PNPM_HOME="/Users/ryanwaudby/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -43,6 +43,6 @@ esac
 # pnpm end
 
 # # opencode
-export PATH=/Users/waudbr01/.opencode/bin:$PATH
+export PATH=$HOME/.opencode/bin:$PATH
 
 eval "$(starship init zsh)"

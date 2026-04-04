@@ -25,7 +25,7 @@ return require('packer').startup(function(use)
 	  end
   })
 
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+  use({'nvim-treesitter/nvim-treesitter', tag = 'v0.9.3', run = ':TSUpdate'})
   use('theprimeagen/harpoon')
   use('tpope/vim-fugitive')
 
@@ -34,7 +34,7 @@ return require('packer').startup(function(use)
 	  branch = 'v2.x',
 	  requires = {
 		  -- LSP Support
-		  {'neovim/nvim-lspconfig'},             -- Required
+		  {'neovim/nvim-lspconfig', tag = 'v1.7.0'}, -- Required
 		  {'williamboman/mason.nvim'},           -- Optional
 		  {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
@@ -45,7 +45,7 @@ return require('packer').startup(function(use)
 	  }
   }
 
-  use('neovim/nvim-lspconfig')
+  use({'neovim/nvim-lspconfig', tag = 'v1.7.0'})
   use('nvimtools/none-ls.nvim')
   use('nvim-lua/plenary.nvim')
   use('MunifTanjim/prettier.nvim')

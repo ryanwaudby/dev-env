@@ -44,7 +44,7 @@ vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Show diagn
 
 -- Auto-format on save using LSP
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = {"*.c", "*.h"},
+  pattern = {"*.c", "*.h", "*.m", "*.rs"},
   callback = function()
     vim.lsp.buf.format({ async = false })
   end,
